@@ -36,8 +36,6 @@ public class ServiceHandler extends HttpServlet {
 			//Check out-queue for finished job
 		}
 		
-		
-		
 		out.print("<H1>Processing request for Job#: " + taskNumber + "</H1>");
 		out.print("<div id=\"r\"></div>");
 		
