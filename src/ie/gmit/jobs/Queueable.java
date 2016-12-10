@@ -40,11 +40,13 @@ public class Queueable {
 			//Make an RMI call to the String Comparison Service and gets Resultator back
 			result = s.compare(job.getStr1(), job.getStr2(), job.getAlgo());
 			
+			//Job finished add Resultator to outQueue using the taskNumber as the key
+            outQueue.put(job.getTaskNumber(), result);
+			
 			} catch (InterruptedException | RemoteException e) {
 			e.printStackTrace();
 			}
 	}
-	
 	
 	
 	//Connect to the RMI service
