@@ -51,7 +51,17 @@ public class StringComparator {
 			{
 				distance = dl.distance(s, t);
 				try {
-					result.setResult("Hamming Distance is: "+distance);
+					result.setResult("Damerau-Levenshtein Distance: "+distance);
+					result.setProcessed();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			else if(algo.equalsIgnoreCase("JaroWinkler Distance"))
+			{
+				distance = dl.distance(s, t);
+				try {
+					result.setResult("JaroWinkler Distance is: "+distance);
 					result.setProcessed();
 				} catch (Exception e) {
 					e.printStackTrace();

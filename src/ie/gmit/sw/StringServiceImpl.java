@@ -15,13 +15,13 @@ public class StringServiceImpl extends UnicastRemoteObject implements StringServ
 	public Resultator compare(String s, String t, String algo) throws RemoteException {
 		result = new ResultatorImpl();
 		
-		//compare Strings with string compare service
-        StringComparator comparator = new StringComparator(s, t, algo, result);
+		//Compare Strings with StringComparator
+        StringComparator comparator = new StringComparator(s, t, result, algo);
         
         //log out result
         System.out.println(result.getResult());
 
-        //returns the Resultator
+        //Returns the Resultator
 		return result;
 	}
 

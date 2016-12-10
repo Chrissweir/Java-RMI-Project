@@ -32,7 +32,7 @@ public class Queueable {
 	public void Queue(){
 		Job job;
 		Resultator result;
-		
+		while(true){
 		//Retrieves and removes the head of this queue, waiting if necessary until an element becomes available
 		try {
 			
@@ -46,6 +46,7 @@ public class Queueable {
 			} catch (InterruptedException | RemoteException e) {
 			e.printStackTrace();
 			}
+		}
 	}
 	
 	
@@ -53,6 +54,35 @@ public class Queueable {
 	private void rmiConnection() throws MalformedURLException, RemoteException, NotBoundException{
 		//Connect to service running on localhost port 1099 with the name stringservice from the rmi registry
 		s = (StringService) Naming.lookup("rmi://localhost:1099/stringservice");
+	}
+
+	//adds to inQueue
+	public void add(Job j){
+		inQueue.add(j);
+	}//end add
+
+	public boolean isComplete(String taskNumber) {
+		if(outQueue.containsKey(taskNumber)){
+			try{
+				Resultator res = outQueue.get(taskNumber);
+				return res.isProcessed();
+			}
+			catch (Exception e) {
+			}
+		}
+		return false;
+	}
+
+	public String getResult(String taskNumber) {
+		String jobResult = "";
+		if(outQueue.containsKey(taskNumber)){
+			try{
+				Resultator res = outQueue.get(taskNumber);
+				jobResult = res.getResult();
+			}catch (Exception e) {
+			}
+		}
+		return jobResult;
 	}
 
 }

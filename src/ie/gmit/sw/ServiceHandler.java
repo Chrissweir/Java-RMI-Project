@@ -15,18 +15,19 @@ public class ServiceHandler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String remoteHost = null;
 	private static long jobNumber = 0;
-	
+	Queueable queue;
 	
 	public void init() throws ServletException {
 		ServletContext ctx = getServletContext();
 		remoteHost = ctx.getInitParameter("RMI_SERVER"); //Reads the value from the <context-param> in web.xml
- 
+		queue = new Queueable();
 	}
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
 		boolean jobComplete = false;
+		String distance = "";
 		
 		//Initialise some request variables with the submitted form info. These are local to this method and thread safe...
 		String algo = req.getParameter("cmbAlgorithm");
@@ -42,10 +43,21 @@ public class ServiceHandler extends HttpServlet {
 		if (taskNumber == null){
 			jobNumber++;
 			taskNumber = new String("T" + jobNumber);
+			
+			//Create a Job object from the request variables and the jobNumber
 			Job job = new Job(s, t, algo, taskNumber);
 			
+			//Add the job to the queue
+			queue.add(job);
 			
 		}else{
+			
+			//Check out-queue in Queueable if the job is finished
+			jobComplete=queue.isComplete(taskNumber);
+			
+			if(jobComplete){
+				distance=queue.getResult(taskNumber);
+			}//end if
 			
 		}
 		
@@ -53,6 +65,7 @@ public class ServiceHandler extends HttpServlet {
 		if(jobComplete){
 			out.print("<font color=\"#993333\"><b>");
 			out.print("<br><br><center>THANK YOU FOR USING THE SERVICE<center>");
+			out.print("<br>Distance was calculated as: " + distance);
 		}
 		else//if task is not complete poll again
 		{
