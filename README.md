@@ -4,14 +4,13 @@
 - Student Number: G00309429
 - Module: Distributed Systems
 - Lecturer: John Healy
-- Current College Year: 4th Year
 
 ##Application Overview##
 
 This Web Application compares two strings and returns the edit distance between them depending on the selected algorithm.
 
 The user selects which algorithm they wish to use from the provided list and then input two strings. The user must then click the Compare
-button which will redirect them to another page. This page provides the user with they're inputted information and selected algorithm and
+button which will redirect them to another page. This page provides the user with their inputted information and selected algorithm and
 informs them that their request is pending. Every 10 seconds the application check if the users request has been completed, if it has
 then the result will be displayed on the page.
 
