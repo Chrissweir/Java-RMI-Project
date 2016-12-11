@@ -20,7 +20,7 @@ To run this application, you'll need the Web Application Archive (War) and the S
 repository. You must then install the latest version of Apache Tomcat from http://tomcat.apache.org/. After you setup tomcat, you must put the comparaor.war file into the
 webapps folder within the apache tomcat directory. Next navigate to the command line, navigate to the apache tomcat bin directory and type startup.bat, which starts tomcat.
 Once all that is done, you can start your jar file. To do this simply navigate to the directory you have downloaded the string-service.jar file to and type the following command 
-into the command line. java –cp ./string-service.jar ie.gmit.sw.StringServiceServant. This will start the RMI server. Next you can go to Localhost:8080/comparator and you can use the Webapp.
+into the command line. java –cp ./string-service.jar ie.gmit.sw.Servant. This will start the RMI server. Next you can go to Localhost:8080/comparator and you can use the Webapp.
 
 #UML Class Diagram#
 ![UML Diagram](https://github.com/Chrissweir/Java-RMI-Project/blob/master/UML.png)
