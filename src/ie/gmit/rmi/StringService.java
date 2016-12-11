@@ -1,5 +1,10 @@
-package ie.gmit.sw;
-
+package ie.gmit.rmi;
+/**
+* StringService is an Interface that extends remote
+* and contains the method Resultator compare();
+*
+* @author Christopher Weir
+*/
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 

@@ -1,9 +1,10 @@
 package ie.gmit.sw;
 
-import java.rmi.*;
-import java.rmi.registry.*;
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
+
+import ie.gmit.rmi.StringService;
+import ie.gmit.rmi.StringServiceImpl;
 
 public class Servant {
 

@@ -1,5 +1,9 @@
-package ie.gmit.sw;
-
+package ie.gmit.rmi;
+/**
+* Resultator interface
+*
+* @author Christopher Weir
+*/
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
