@@ -70,9 +70,9 @@ public class StringComparator implements Runnable {
 				}
 				else if(algo.equalsIgnoreCase("JaroWinkler Distance"))
 				{
-					distanceD = jw.getSimilarity(s, t);
+					distance = (int) jw.getSimilarity(s, t);
 					try {
-						result.setResult("JaroWinkler Distance is: "+distanceD);
+						result.setResult("JaroWinkler Distance is: "+distance);
 						Thread.sleep(8000);
 						result.setProcessed();
 					} catch (Exception e) {

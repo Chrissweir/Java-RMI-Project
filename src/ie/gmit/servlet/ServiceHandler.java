@@ -103,20 +103,16 @@ public class ServiceHandler extends HttpServlet {
 					outQueue.remove(taskNumber);
 					//Get the Distance of the Current Task
 					distance = r.getResult();
-					out.print("<center>YOUR REQUEST HAS BEEN PROCESSED AND HERE IS THE RESULT: "+distance+"</center>");
 				}
-				else
-				{
-					out.print("<font color=\"#993333\"><b>");
-					out.print("Please wait while the result is being calculated....");
-				}
+				
 			}
 		}
 
 		//If the task is complete there is no need to send the form again, just output a thank you message
 				if(jobComplete){
 					out.print("<font color=\"#993333\"><b>");
-					out.print("<br><br><center>THANK YOU FOR USING THE SERVICE<center>");
+					out.print("<center>The distance between " + s + " and " + t +" using "+distance+"</center>");
+					out.print("<br><br><center>Thank you for using this service!<center>");
 				}
 				else//if task is not complete poll again
 				{
@@ -138,7 +134,8 @@ public class ServiceHandler extends HttpServlet {
 					out.print("</form>");								
 					out.print("</body>");	
 					out.print("</html>");	
-				
+					out.print("<font color=\"#993333\"><b>");
+					out.print("Please wait while the result is being calculated....");
 					out.print("<script>");
 					//Here is where we submit the form
 					out.print("var wait=setTimeout(\"document.frmRequestDetails.submit();\", 10000);");
