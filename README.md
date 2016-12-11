@@ -15,7 +15,7 @@ button which will redirect them to another page. This page provides the user wit
 informs them that their request is pending. Every 10 seconds the application check if the users request has been completed, if it has
 then the result will be displayed on the page.
 
-##Execution Instructions##
+##Instructions##
 
 To run this application, you'll need the Web Application Archive (War) and the String-Service java application archive (Jar) that are provided in the Deployment folder of this
 repository. You must then install the latest version of Apache Tomcat from http://tomcat.apache.org/. After you setup tomcat, you must put the comparaor.war file into the
