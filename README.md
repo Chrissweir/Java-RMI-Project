@@ -3,7 +3,7 @@
 - Student Name: Christopher Weir
 - Student Number: G00309429
 - Module: Distributed Systems
-- Lecturer: John Healy
+- Lecturer: Dr. John Healy
 
 ##Application Overview##
 
